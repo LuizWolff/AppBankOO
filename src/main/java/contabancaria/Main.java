@@ -35,15 +35,15 @@ public class Main {
                         System.out.println("Você já possui uma conta aberta.");
                     }
                     break;
-                case 2:
+                case 2: // Se for cliente PJ, aplica a taxa de 0.5% sobre o saque
                     if (conta != null) {
                         try {
-                            System.out.print("Digite o valor que deseja sacar: ");
+                            System.out.print("Lembrando que Conta PJ possui taxa 0.5% de taxa sobre o saque\nDigite o valor que deseja sacar: ");
                             double valorSaque = scanner.nextDouble();
                             conta.sacar(valorSaque);
                         } catch (InputMismatchException e) {
                             System.out.println("Valor inválido. Certifique-se de inserir um número válido.");
-                            scanner.nextLine(); // Limpar o buffer do Scanner
+                            scanner.nextLine();
                         }
                     } else {
                         System.out.println("Você não possui uma conta aberta para realizar o saque.");
@@ -57,7 +57,7 @@ public class Main {
                             conta.depositar(valorDeposito);
                         } catch (InputMismatchException e) {
                             System.out.println("Valor inválido. Certifique-se de inserir um número válido.");
-                            scanner.nextLine(); // Limpar o buffer do Scanner
+                            scanner.nextLine();
                         }
                     } else {
                         System.out.println("Você não possui uma conta aberta para realizar o depósito.");
@@ -71,16 +71,16 @@ public class Main {
                             numeroAgenciaDestino = scanner.nextInt();
                         } catch (InputMismatchException e) {
                             System.out.println("Número de agência inválido. Certifique-se de inserir um número válido.");
-                            scanner.nextLine(); // Limpar o buffer do Scanner
+                            scanner.nextLine();
                             break;
-                        }
-                        System.out.print("Digite o valor para transferência: ");
+                        }// Se for cliente PJ, aplica a taxa de 0.5% sobre o saque
+                        System.out.print("Lembrando que Conta PJ possui taxa 0.5% de taxa sobre a Transferencia\nDigite o valor para transferência: ");
                         double valorTransferencia;
                         try {
                             valorTransferencia = scanner.nextDouble();
                         } catch (InputMismatchException e) {
                             System.out.println("Valor de transferência inválido. Certifique-se de inserir um número válido.");
-                            scanner.nextLine(); // Limpar o buffer do Scanner
+                            scanner.nextLine();
                             break;
                         }
                         conta.transferencia(valorTransferencia, numeroAgenciaDestino);
@@ -96,7 +96,7 @@ public class Main {
                             valorInvestimento = scanner.nextDouble();
                         } catch (InputMismatchException e) {
                             System.out.println("Valor de investimento inválido. Certifique-se de inserir um número válido.");
-                            scanner.nextLine(); // Limpar o buffer do Scanner
+                            scanner.nextLine();
                             break;
                         }
                         conta.investir(valorInvestimento);
